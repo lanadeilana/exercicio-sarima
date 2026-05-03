@@ -94,10 +94,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-> **Observação:** A série apresenta tendência de crescimento de longo prazo, com pico
-> antes da crise de 2015–2016, retração, recuperação pós-2017 e novo choque em 2020
-> (COVID-19). O padrão sazonal anual é visível — pico em novembro/dezembro (datas
-> comemorativas) e vale em fevereiro/março.
+Tendência de crescimento até 2015, queda na crise, recuperação depois, choque em 2020. Dá pra ver o padrão sazonal anual — pico no fim do ano, vale em fevereiro/março.
 
 ### ACF e PACF da série original
 
@@ -111,9 +108,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-> **Leitura:** O ACF decai lentamente (sinal de não-estacionaridade / tendência) e
-> exibe picos nos lags múltiplos de 12 (sinal de sazonalidade anual). O PACF corta
-> abruptamente no lag 1, o que é típico de séries com raiz unitária.
+ACF decai devagar sem cortar — tendência clara. Picos nos lags 12, 24 e 36 confirmam a sazonalidade anual.
 
 ### Série diferenciada (1ª diferença regular)
 
@@ -130,9 +125,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-> **Leitura:** Após uma diferença regular a série perde a tendência, mas os picos
-> sazonais no ACF (lags 12, 24, 36) permanecem — indicando que diferenciação sazonal
-> também será necessária.
+Com uma diferença regular a tendência some, mas os picos sazonais no ACF continuam. Precisa de diferenciação sazonal também.
 
 ### Série diferenciada (1ª regular + 1ª sazonal)
 
@@ -149,8 +142,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-> **Leitura:** Com dupla diferenciação (regular + sazonal) a série parece estacionária.
-> ACF e PACF residuais orientarão a ordem dos componentes AR e MA.
+Com as duas diferenciações a série parece estacionária. O ACF e PACF aqui vão orientar as ordens AR e MA.
 
 ---
 
@@ -194,8 +186,10 @@ kpss_summary(y_diff1s, "1ª regular + 1ª sazonal")
 ### Estimativa automática de ndiffs
 
 ```{python}
-d  = ndiffs(y, test="adf")
-D  = nsdiffs(y, m=12, test="ocsb")
+# quantas diferenciações são necessárias segundo o ADF
+d = ndiffs(y, test="adf")
+# e sazonais
+D = nsdiffs(y, m=12, test="ocsb")
 
 print(f"Diferenças regulares sugeridas  (d) : {d}")
 print(f"Diferenças sazonais sugeridas   (D) : {D}")
@@ -206,22 +200,21 @@ print(f"Diferenças sazonais sugeridas   (D) : {D}")
 ## Modelagem SARIMA via AutoARIMA
 
 ```{python}
-# StatsForecast espera coluna ds como string no formato YYYY-MM-DD
+# ds precisa ser datetime — a versão nova do statsforecast não aceita string
 df_model = df_sf.copy()
-df_model["ds"] = df_model["ds"].dt.strftime("%Y-%m-%d")
+df_model["ds"] = pd.to_datetime(df_model["ds"])
 
 sf = StatsForecast(
     models=[AutoARIMA(season_length=12)],
-    freq="MS",          # Monthly Start
+    freq="MS",
     n_jobs=-1,
 )
 
 sf.fit(df_model)
 
-# Extraindo o modelo ajustado
 fitted_model = sf.fitted_[0, 0].model_
 print("\n=== Modelo selecionado pelo AutoARIMA ===")
-print(fitted_model.summary())
+print(fitted_model)
 ```
 
 ---
@@ -229,23 +222,19 @@ print(fitted_model.summary())
 ## Diagnóstico dos resíduos
 
 ```{python}
-residuals = fitted_model.resid
+# residuals vem como dict nessa versão do statsforecast
+residuals = np.array(fitted_model["residuals"])
 
 fig, axes = plt.subplots(2, 2, figsize=(13, 8))
 
-# 1. Resíduos no tempo
 axes[0, 0].plot(residuals, linewidth=1, color="#7f7f7f")
 axes[0, 0].axhline(0, color="red", linestyle="--", linewidth=0.8)
 axes[0, 0].set_title("Resíduos ao longo do tempo")
 
-# 2. Histograma
 axes[0, 1].hist(residuals, bins=30, edgecolor="white", color="#1f77b4")
 axes[0, 1].set_title("Distribuição dos resíduos")
 
-# 3. ACF dos resíduos
 plot_acf(residuals, lags=36, ax=axes[1, 0], title="ACF dos resíduos")
-
-# 4. PACF dos resíduos
 plot_pacf(residuals, lags=36, ax=axes[1, 1], title="PACF dos resíduos")
 
 plt.tight_layout()
@@ -253,7 +242,6 @@ plt.show()
 ```
 
 ```{python}
-# Teste Ljung-Box
 from statsmodels.stats.diagnostic import acorr_ljungbox
 
 lb = acorr_ljungbox(residuals, lags=[12, 24, 36], return_df=True)
@@ -261,9 +249,7 @@ print("Teste Ljung-Box (H0: resíduos são white noise)")
 print(lb.to_string())
 ```
 
-> **Interpretação:** Se os p-valores do Ljung-Box forem todos > 0.05, não rejeitamos
-> H0 — os resíduos são white noise e o modelo capturou bem a estrutura da série.
-> ACF/PACF dos resíduos sem picos significativos reforça essa conclusão.
+Se os p-valores ficarem acima de 0.05 nos três lags, o modelo capturou bem — os resíduos são ruído branco.
 
 ---
 
@@ -276,15 +262,12 @@ forecast.head()
 ```
 
 ```{python}
-# Histórico para o plot
 hist = df_sf.copy()
 
 fig, ax = plt.subplots(figsize=(13, 5))
 
-# Histórico
 ax.plot(hist["ds"], hist["y"], label="Histórico", color="#1f77b4", linewidth=1.5)
 
-# Intervalo 95%
 ax.fill_between(
     forecast["ds"],
     forecast["AutoARIMA-lo-95"],
@@ -292,7 +275,6 @@ ax.fill_between(
     alpha=0.2, color="#d62728", label="IC 95%"
 )
 
-# Intervalo 80%
 ax.fill_between(
     forecast["ds"],
     forecast["AutoARIMA-lo-80"],
@@ -300,7 +282,6 @@ ax.fill_between(
     alpha=0.35, color="#d62728", label="IC 80%"
 )
 
-# Ponto central
 ax.plot(
     forecast["ds"], forecast["AutoARIMA"],
     color="#d62728", linewidth=2, label="Previsão"
@@ -333,7 +314,7 @@ Sim pros dois. O ACF decai bem devagar, sem cortar em nenhum ponto claro — iss
 
 **2. Quantas diferenças o AutoARIMA aplicou? E os componentes AR/MA?**
 
-Aplicou d = 1 (diferença regular) e D = 1 (diferença sazonal). Depois das duas diferenciações o ACF e PACF ficam bem mais comportados — dá pra ver onde os componentes AR e MA entram, mas confesso que a leitura exata das ordens não é trivial (o AutoARIMA faz isso automaticamente e eu confiei nele aqui).
+Aplicou d = 1 (diferença regular) e D = 1 (diferença sazonal). Depois das duas diferenciações o ACF e PACF ficam bem mais comportados — dá pra ver onde os componentes AR e MA entram, mas a leitura exata das ordens não é trivial (o AutoARIMA faz isso automaticamente e eu confiei nele aqui).
 
 **3. Os resíduos parecem white noise?**
 

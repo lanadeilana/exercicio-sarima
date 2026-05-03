@@ -2276,7 +2276,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<div id="3bcd925b" class="cell" data-execution_count="1">
+<div id="5b95bd2d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -2303,7 +2303,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="carregando-a-base-pmc" class="level2">
 <h2 class="anchored" data-anchor-id="carregando-a-base-pmc">Carregando a base PMC</h2>
-<div id="970c4b4e" class="cell" data-execution_count="2">
+<div id="bb5b0c44" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pmc <span class="op">=</span> pd.read_csv(</span>
@@ -2318,7 +2318,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <pre><code>Shape: (7182, 3)
 UFs disponíveis: [&#39;Acre&#39;, &#39;Alagoas&#39;, &#39;Amapá&#39;, &#39;Amazonas&#39;, &#39;Bahia&#39;, &#39;Ceará&#39;, &#39;Distrito Federal&#39;, &#39;Espírito Santo&#39;, &#39;Goiás&#39;, &#39;Maranhão&#39;, &#39;Mato Grosso&#39;, &#39;Mato Grosso do Sul&#39;, &#39;Minas Gerais&#39;, &#39;Paraná&#39;, &#39;Paraíba&#39;, &#39;Pará&#39;, &#39;Pernambuco&#39;, &#39;Piauí&#39;, &#39;Rio Grande do Norte&#39;, &#39;Rio Grande do Sul&#39;, &#39;Rio de Janeiro&#39;, &#39;Rondônia&#39;, &#39;Roraima&#39;, &#39;Santa Catarina&#39;, &#39;Sergipe&#39;, &#39;São Paulo&#39;, &#39;Tocantins&#39;]</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -2372,7 +2372,7 @@ UFs disponíveis: [&#39;Acre&#39;, &#39;Alagoas&#39;, &#39;Amapá&#39;, &#39;Ama
 </section>
 <section id="uf-de-interesse-são-paulo" class="level2">
 <h2 class="anchored" data-anchor-id="uf-de-interesse-são-paulo">UF de interesse: São Paulo</h2>
-<div id="2ae3c825" class="cell" data-execution_count="3">
+<div id="61b166d2" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>MINHA_UF <span class="op">=</span> <span class="st">&quot;São Paulo&quot;</span></span>
@@ -2393,7 +2393,7 @@ UFs disponíveis: [&#39;Acre&#39;, &#39;Alagoas&#39;, &#39;Amapá&#39;, &#39;Ama
 <pre><code>Período: 2004-01-01 → 2026-02-01
 Observações: 266</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -2449,7 +2449,7 @@ Observações: 266</code></pre>
 <h2 class="anchored" data-anchor-id="análise-descritiva">Análise descritiva</h2>
 <section id="série-temporal" class="level3">
 <h3 class="anchored" data-anchor-id="série-temporal">Série temporal</h3>
-<div id="bc1493af" class="cell" data-execution_count="4">
+<div id="b27b4946" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">4</span>))</span>
@@ -2470,13 +2470,11 @@ Observações: 266</code></pre>
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p><strong>Observação:</strong> A série apresenta tendência de crescimento de longo prazo, com pico antes da crise de 2015–2016, retração, recuperação pós-2017 e novo choque em 2020 (COVID-19). O padrão sazonal anual é visível — pico em novembro/dezembro (datas comemorativas) e vale em fevereiro/março.</p>
-</blockquote>
+<p>Tendência de crescimento até 2015, queda na crise, recuperação depois, choque em 2020. Dá pra ver o padrão sazonal anual — pico no fim do ano, vale em fevereiro/março.</p>
 </section>
 <section id="acf-e-pacf-da-série-original" class="level3">
 <h3 class="anchored" data-anchor-id="acf-e-pacf-da-série-original">ACF e PACF da série original</h3>
-<div id="1dd11f91" class="cell" data-execution_count="5">
+<div id="ff3a8382" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_sf[<span class="st">&quot;y&quot;</span>].values</span>
@@ -2495,13 +2493,11 @@ Observações: 266</code></pre>
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p><strong>Leitura:</strong> O ACF decai lentamente (sinal de não-estacionaridade / tendência) e exibe picos nos lags múltiplos de 12 (sinal de sazonalidade anual). O PACF corta abruptamente no lag 1, o que é típico de séries com raiz unitária.</p>
-</blockquote>
+<p>ACF decai devagar sem cortar — tendência clara. Picos nos lags 12, 24 e 36 confirmam a sazonalidade anual.</p>
 </section>
 <section id="série-diferenciada-1ª-diferença-regular" class="level3">
 <h3 class="anchored" data-anchor-id="série-diferenciada-1ª-diferença-regular">Série diferenciada (1ª diferença regular)</h3>
-<div id="2a3f2d6c" class="cell" data-execution_count="6">
+<div id="a54cbca1" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y_diff1 <span class="op">=</span> pd.Series(y).diff().dropna().values</span>
@@ -2523,13 +2519,11 @@ Observações: 266</code></pre>
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p><strong>Leitura:</strong> Após uma diferença regular a série perde a tendência, mas os picos sazonais no ACF (lags 12, 24, 36) permanecem — indicando que diferenciação sazonal também será necessária.</p>
-</blockquote>
+<p>Com uma diferença regular a tendência some, mas os picos sazonais no ACF continuam. Precisa de diferenciação sazonal também.</p>
 </section>
 <section id="série-diferenciada-1ª-regular-1ª-sazonal" class="level3">
 <h3 class="anchored" data-anchor-id="série-diferenciada-1ª-regular-1ª-sazonal">Série diferenciada (1ª regular + 1ª sazonal)</h3>
-<div id="38d52e47" class="cell" data-execution_count="7">
+<div id="bf127c49" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>y_diff1s <span class="op">=</span> pd.Series(y_diff1).diff(<span class="dv">12</span>).dropna().values</span>
@@ -2551,9 +2545,7 @@ Observações: 266</code></pre>
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p><strong>Leitura:</strong> Com dupla diferenciação (regular + sazonal) a série parece estacionária. ACF e PACF residuais orientarão a ordem dos componentes AR e MA.</p>
-</blockquote>
+<p>Com as duas diferenciações a série parece estacionária. O ACF e PACF aqui vão orientar as ordens AR e MA.</p>
 <hr>
 </section>
 </section>
@@ -2561,7 +2553,7 @@ Observações: 266</code></pre>
 <h2 class="anchored" data-anchor-id="testes-de-raiz-unitária-e-estimativa-de-ndiffs">Testes de raiz unitária e estimativa de ndiffs</h2>
 <section id="teste-adf-augmented-dickey-fuller" class="level3">
 <h3 class="anchored" data-anchor-id="teste-adf-augmented-dickey-fuller">Teste ADF (Augmented Dickey-Fuller)</h3>
-<div id="b36da8d6" class="cell" data-execution_count="8">
+<div id="31474a90" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adf_summary(series, label<span class="op">=</span><span class="st">&quot;&quot;</span>):</span>
@@ -2602,7 +2594,7 @@ ADF — 1ª regular + 1ª sazonal
 </section>
 <section id="teste-kpss" class="level3">
 <h3 class="anchored" data-anchor-id="teste-kpss">Teste KPSS</h3>
-<div id="f185cf08" class="cell" data-execution_count="9">
+<div id="3b7e67a7" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kpss_summary(series, label<span class="op">=</span><span class="st">&quot;&quot;</span>):</span>
@@ -2635,18 +2627,34 @@ KPSS — 1ª regular + 1ª sazonal
   p-valor     : 0.1000
   Conclusão   : ESTACIONÁRIA ✓ (α = 0.05)</code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\ilanaagb\AppData\Local\Temp\ipykernel_23880\800532483.py:2: InterpolationWarning: The test statistic is outside of the range of p-values available in the
+look-up table. The actual p-value is smaller than the p-value returned.
+
+  result = kpss(series, regression=&quot;c&quot;, nlags=&quot;auto&quot;)
+C:\Users\ilanaagb\AppData\Local\Temp\ipykernel_23880\800532483.py:2: InterpolationWarning: The test statistic is outside of the range of p-values available in the
+look-up table. The actual p-value is greater than the p-value returned.
+
+  result = kpss(series, regression=&quot;c&quot;, nlags=&quot;auto&quot;)
+C:\Users\ilanaagb\AppData\Local\Temp\ipykernel_23880\800532483.py:2: InterpolationWarning: The test statistic is outside of the range of p-values available in the
+look-up table. The actual p-value is greater than the p-value returned.
+
+  result = kpss(series, regression=&quot;c&quot;, nlags=&quot;auto&quot;)</code></pre>
+</div>
 </div>
 </section>
 <section id="estimativa-automática-de-ndiffs" class="level3">
 <h3 class="anchored" data-anchor-id="estimativa-automática-de-ndiffs">Estimativa automática de ndiffs</h3>
-<div id="867f75f2" class="cell" data-execution_count="10">
+<div id="acdf6421" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>d  <span class="op">=</span> ndiffs(y, test<span class="op">=</span><span class="st">&quot;adf&quot;</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>D  <span class="op">=</span> nsdiffs(y, m<span class="op">=</span><span class="dv">12</span>, test<span class="op">=</span><span class="st">&quot;ocsb&quot;</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Diferenças regulares sugeridas  (d) : </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Diferenças sazonais sugeridas   (D) : </span><span class="sc">{</span>D<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quantas diferenciações são necessárias segundo o ADF</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> ndiffs(y, test<span class="op">=</span><span class="st">&quot;adf&quot;</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># e sazonais</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> nsdiffs(y, m<span class="op">=</span><span class="dv">12</span>, test<span class="op">=</span><span class="st">&quot;ocsb&quot;</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Diferenças regulares sugeridas  (d) : </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Diferenças sazonais sugeridas   (D) : </span><span class="sc">{</span>D<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Diferenças regulares sugeridas  (d) : 1
@@ -2658,26 +2666,24 @@ Diferenças sazonais sugeridas   (D) : 0</code></pre>
 </section>
 <section id="modelagem-sarima-via-autoarima" class="level2">
 <h2 class="anchored" data-anchor-id="modelagem-sarima-via-autoarima">Modelagem SARIMA via AutoARIMA</h2>
-<div id="9e6e7fab" class="cell" data-execution_count="11">
+<div id="9ad7d6bc" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># StatsForecast espera coluna ds como string no formato YYYY-MM-DD</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_model <span class="op">=</span> df_sf.copy()</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df_model[<span class="st">&quot;ds&quot;</span>] <span class="op">=</span> pd.to_datetime(df_model[<span class="st">&quot;ds&quot;</span>])</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>sf <span class="op">=</span> StatsForecast(</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    models<span class="op">=</span>[AutoARIMA(season_length<span class="op">=</span><span class="dv">12</span>)],</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    freq<span class="op">=</span><span class="st">&quot;MS&quot;</span>,          <span class="co"># Monthly Start</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span>,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>sf.fit(df_model)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraindo o modelo ajustado</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraindo o modelo ajustado</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>fitted_model <span class="op">=</span> sf.fitted_[<span class="dv">0</span>, <span class="dv">0</span>].model_</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">=== Modelo selecionado pelo AutoARIMA ===&quot;</span>)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fitted_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ds precisa ser datetime — a versão nova do statsforecast não aceita string</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_model <span class="op">=</span> df_sf.copy()</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_model[<span class="st">&quot;ds&quot;</span>] <span class="op">=</span> pd.to_datetime(df_model[<span class="st">&quot;ds&quot;</span>])</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>sf <span class="op">=</span> StatsForecast(</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    models<span class="op">=</span>[AutoARIMA(season_length<span class="op">=</span><span class="dv">12</span>)],</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    freq<span class="op">=</span><span class="st">&quot;MS&quot;</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>sf.fit(df_model)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>fitted_model <span class="op">=</span> sf.fitted_[<span class="dv">0</span>, <span class="dv">0</span>].model_</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">=== Modelo selecionado pelo AutoARIMA ===&quot;</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fitted_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -3618,30 +3624,26 @@ Diferenças sazonais sugeridas   (D) : 0</code></pre>
 </section>
 <section id="diagnóstico-dos-resíduos" class="level2">
 <h2 class="anchored" data-anchor-id="diagnóstico-dos-resíduos">Diagnóstico dos resíduos</h2>
-<div id="92c15c35" class="cell" data-execution_count="12">
+<div id="4aaa2846" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>residuals <span class="op">=</span> np.array(fitted_model[<span class="st">&quot;residuals&quot;</span>])</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">8</span>))</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Resíduos no tempo</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].plot(residuals, linewidth<span class="op">=</span><span class="dv">1</span>, color<span class="op">=</span><span class="st">&quot;#7f7f7f&quot;</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, linestyle<span class="op">=</span><span class="st">&quot;--&quot;</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">&quot;Resíduos ao longo do tempo&quot;</span>)</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Histograma</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].hist(residuals, bins<span class="op">=</span><span class="dv">30</span>, edgecolor<span class="op">=</span><span class="st">&quot;white&quot;</span>, color<span class="op">=</span><span class="st">&quot;#1f77b4&quot;</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">&quot;Distribuição dos resíduos&quot;</span>)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. ACF dos resíduos</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>plot_acf(residuals, lags<span class="op">=</span><span class="dv">36</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>], title<span class="op">=</span><span class="st">&quot;ACF dos resíduos&quot;</span>)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. PACF dos resíduos</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plot_pacf(residuals, lags<span class="op">=</span><span class="dv">36</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>], title<span class="op">=</span><span class="st">&quot;PACF dos resíduos&quot;</span>)</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># residuals vem como dict nessa versão do statsforecast</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>residuals <span class="op">=</span> np.array(fitted_model[<span class="st">&quot;residuals&quot;</span>])</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">8</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].plot(residuals, linewidth<span class="op">=</span><span class="dv">1</span>, color<span class="op">=</span><span class="st">&quot;#7f7f7f&quot;</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, linestyle<span class="op">=</span><span class="st">&quot;--&quot;</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">&quot;Resíduos ao longo do tempo&quot;</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].hist(residuals, bins<span class="op">=</span><span class="dv">30</span>, edgecolor<span class="op">=</span><span class="st">&quot;white&quot;</span>, color<span class="op">=</span><span class="st">&quot;#1f77b4&quot;</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">&quot;Distribuição dos resíduos&quot;</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>plot_acf(residuals, lags<span class="op">=</span><span class="dv">36</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>], title<span class="op">=</span><span class="st">&quot;ACF dos resíduos&quot;</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>plot_pacf(residuals, lags<span class="op">=</span><span class="dv">36</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>], title<span class="op">=</span><span class="st">&quot;PACF dos resíduos&quot;</span>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -3651,15 +3653,14 @@ Diferenças sazonais sugeridas   (D) : 0</code></pre>
 </div>
 </div>
 </div>
-<div id="efe8a14b" class="cell" data-execution_count="13">
+<div id="952fc874" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Teste Ljung-Box</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.diagnostic <span class="im">import</span> acorr_ljungbox</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>lb <span class="op">=</span> acorr_ljungbox(residuals, lags<span class="op">=</span>[<span class="dv">12</span>, <span class="dv">24</span>, <span class="dv">36</span>], return_df<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Teste Ljung-Box (H0: resíduos são white noise)&quot;</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lb.to_string())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.diagnostic <span class="im">import</span> acorr_ljungbox</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>lb <span class="op">=</span> acorr_ljungbox(residuals, lags<span class="op">=</span>[<span class="dv">12</span>, <span class="dv">24</span>, <span class="dv">36</span>], return_df<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Teste Ljung-Box (H0: resíduos são white noise)&quot;</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lb.to_string())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Teste Ljung-Box (H0: resíduos são white noise)
@@ -3669,21 +3670,19 @@ Diferenças sazonais sugeridas   (D) : 0</code></pre>
 36  36.467674   0.446913</code></pre>
 </div>
 </div>
-<blockquote class="blockquote">
-<p><strong>Interpretação:</strong> Se os p-valores do Ljung-Box forem todos &gt; 0.05, não rejeitamos H0 — os resíduos são white noise e o modelo capturou bem a estrutura da série. ACF/PACF dos resíduos sem picos significativos reforça essa conclusão.</p>
-</blockquote>
+<p>Se os p-valores ficarem acima de 0.05 nos três lags, o modelo capturou bem — os resíduos são ruído branco.</p>
 <hr>
 </section>
 <section id="previsão-24-meses-à-frente" class="level2">
 <h2 class="anchored" data-anchor-id="previsão-24-meses-à-frente">Previsão · 24 meses à frente</h2>
-<div id="17b68498" class="cell" data-execution_count="14">
+<div id="cdcd85d3" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>forecast <span class="op">=</span> sf.predict(h<span class="op">=</span><span class="dv">24</span>, level<span class="op">=</span>[<span class="dv">80</span>, <span class="dv">95</span>])</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>forecast[<span class="st">&quot;ds&quot;</span>] <span class="op">=</span> pd.to_datetime(forecast[<span class="st">&quot;ds&quot;</span>])</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>forecast.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>forecast <span class="op">=</span> sf.predict(h<span class="op">=</span><span class="dv">24</span>, level<span class="op">=</span>[<span class="dv">80</span>, <span class="dv">95</span>])</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>forecast[<span class="st">&quot;ds&quot;</span>] <span class="op">=</span> pd.to_datetime(forecast[<span class="st">&quot;ds&quot;</span>])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>forecast.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -3757,48 +3756,43 @@ Diferenças sazonais sugeridas   (D) : 0</code></pre>
 </div>
 </div>
 </div>
-<div id="65080da2" class="cell" data-execution_count="15">
+<div id="b1cec0e5" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histórico para o plot</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>hist <span class="op">=</span> df_sf.copy()</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">5</span>))</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Histórico</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax.plot(hist[<span class="st">&quot;ds&quot;</span>], hist[<span class="st">&quot;y&quot;</span>], label<span class="op">=</span><span class="st">&quot;Histórico&quot;</span>, color<span class="op">=</span><span class="st">&quot;#1f77b4&quot;</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalo 95%</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;ds&quot;</span>],</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-lo-95&quot;</span>],</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-hi-95&quot;</span>],</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.2</span>, color<span class="op">=</span><span class="st">&quot;#d62728&quot;</span>, label<span class="op">=</span><span class="st">&quot;IC 95%&quot;</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalo 80%</span></span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;ds&quot;</span>],</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-lo-80&quot;</span>],</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-hi-80&quot;</span>],</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.35</span>, color<span class="op">=</span><span class="st">&quot;#d62728&quot;</span>, label<span class="op">=</span><span class="st">&quot;IC 80%&quot;</span></span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Ponto central</span></span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;ds&quot;</span>], forecast[<span class="st">&quot;AutoARIMA&quot;</span>],</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">&quot;#d62728&quot;</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">&quot;Previsão&quot;</span></span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>ax.axvline(forecast[<span class="st">&quot;ds&quot;</span>].<span class="bu">min</span>(), color<span class="op">=</span><span class="st">&quot;gray&quot;</span>, linestyle<span class="op">=</span><span class="st">&quot;--&quot;</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="ss">f&quot;Previsão SARIMA — </span><span class="sc">{</span>MINHA_UF<span class="sc">}</span><span class="ss"> · 24 meses à frente&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&quot;Data&quot;</span>)</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">&quot;Índice (Base 2022 = 100)&quot;</span>)</span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(mdates.YearLocator(<span class="dv">2</span>))</span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">&quot;%Y&quot;</span>))</span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hist <span class="op">=</span> df_sf.copy()</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">5</span>))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ax.plot(hist[<span class="st">&quot;ds&quot;</span>], hist[<span class="st">&quot;y&quot;</span>], label<span class="op">=</span><span class="st">&quot;Histórico&quot;</span>, color<span class="op">=</span><span class="st">&quot;#1f77b4&quot;</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;ds&quot;</span>],</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-lo-95&quot;</span>],</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-hi-95&quot;</span>],</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.2</span>, color<span class="op">=</span><span class="st">&quot;#d62728&quot;</span>, label<span class="op">=</span><span class="st">&quot;IC 95%&quot;</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>ax.fill_between(</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;ds&quot;</span>],</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-lo-80&quot;</span>],</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;AutoARIMA-hi-80&quot;</span>],</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.35</span>, color<span class="op">=</span><span class="st">&quot;#d62728&quot;</span>, label<span class="op">=</span><span class="st">&quot;IC 80%&quot;</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>ax.plot(</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    forecast[<span class="st">&quot;ds&quot;</span>], forecast[<span class="st">&quot;AutoARIMA&quot;</span>],</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">&quot;#d62728&quot;</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">&quot;Previsão&quot;</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>ax.axvline(forecast[<span class="st">&quot;ds&quot;</span>].<span class="bu">min</span>(), color<span class="op">=</span><span class="st">&quot;gray&quot;</span>, linestyle<span class="op">=</span><span class="st">&quot;--&quot;</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="ss">f&quot;Previsão SARIMA — </span><span class="sc">{</span>MINHA_UF<span class="sc">}</span><span class="ss"> · 24 meses à frente&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&quot;Data&quot;</span>)</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">&quot;Índice (Base 2022 = 100)&quot;</span>)</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(mdates.YearLocator(<span class="dv">2</span>))</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">&quot;%Y&quot;</span>))</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -3808,12 +3802,12 @@ Diferenças sazonais sugeridas   (D) : 0</code></pre>
 </div>
 </div>
 </div>
-<div id="5a305fca" class="cell" data-execution_count="16">
+<div id="692d8153" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=== Previsões pontuais (24 meses) ===&quot;</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(forecast[[<span class="st">&quot;ds&quot;</span>, <span class="st">&quot;AutoARIMA&quot;</span>, <span class="st">&quot;AutoARIMA-lo-80&quot;</span>, <span class="st">&quot;AutoARIMA-hi-80&quot;</span>,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;AutoARIMA-lo-95&quot;</span>, <span class="st">&quot;AutoARIMA-hi-95&quot;</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=== Previsões pontuais (24 meses) ===&quot;</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(forecast[[<span class="st">&quot;ds&quot;</span>, <span class="st">&quot;AutoARIMA&quot;</span>, <span class="st">&quot;AutoARIMA-lo-80&quot;</span>, <span class="st">&quot;AutoARIMA-hi-80&quot;</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;AutoARIMA-lo-95&quot;</span>, <span class="st">&quot;AutoARIMA-hi-95&quot;</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== Previsões pontuais (24 meses) ===
@@ -3849,15 +3843,15 @@ Diferenças sazonais sugeridas   (D) : 0</code></pre>
 <section id="discussão" class="level2">
 <h2 class="anchored" data-anchor-id="discussão">Discussão</h2>
 <p><strong>1. ACF/PACF da série original sugeriu sazonalidade? E tendência?</strong></p>
-<p>Sim para os dois. O ACF decai lentamente sem corte claro, o que é sinal clássico de não-estacionaridade (tendência). Além disso, picos pronunciados nos lags 12, 24 e 36 evidenciam sazonalidade anual forte — o que bate perfeitamente com o gráfico de linha, que mostra picos recorrentes no último trimestre de cada ano (Black Friday, Natal) e vales em fevereiro/março.</p>
+<p>Sim pros dois. O ACF decai bem devagar, sem cortar em nenhum ponto claro — isso indica tendência, a série não é estacionária. E dá pra ver picos nos lags 12, 24 e 36, que são exatamente os múltiplos de um ano, então a sazonalidade anual tá bem marcada. Faz sentido com o gráfico de linha também: toda virada de ano tem um pico visível (Black Friday, Natal) e o começo do ano cai bastante.</p>
 <p><strong>2. Quantas diferenças o AutoARIMA aplicou? E os componentes AR/MA?</strong></p>
-<p>O AutoARIMA aplicou d = 1 (diferença regular) e D = 1 (diferença sazonal), o que era esperado dado o ACF e os testes ADF/KPSS. Os componentes AR e MA selecionados ficaram visíveis no ACF/PACF após a dupla diferenciação: o corte no lag 1 do PACF orienta o componente AR e o decaimento do ACF orienta o MA.</p>
+<p>Aplicou d = 1 (diferença regular) e D = 1 (diferença sazonal). Depois das duas diferenciações o ACF e PACF ficam bem mais comportados — dá pra ver onde os componentes AR e MA entram, mas a leitura exata das ordens não é trivial (o AutoARIMA faz isso automaticamente e eu confiei nele aqui).</p>
 <p><strong>3. Os resíduos parecem white noise?</strong></p>
-<p>Em geral sim. O ACF e PACF dos resíduos ficam dentro das bandas de confiança sem padrão sistemático, e o Ljung-Box não rejeita H0 nos lags testados. Não há padrão sazonal remanescente, o que indica que o modelo absorveu bem a estrutura da série.</p>
+<p>Parecem sim. O ACF e PACF dos resíduos ficam dentro das bandas na maior parte dos lags, sem nenhum padrão sazonal remanescente. O Ljung-Box também não rejeita H0, o que é um bom sinal — o modelo capturou bem o que tinha pra capturar.</p>
 <p><strong>4. A previsão pareceu razoável visualmente?</strong></p>
-<p>Sim. A previsão captura a sazonalidade anual (ciclo de alta no fim do ano se repete), fica ancorada no nível recente do histórico e os intervalos se abrem progressivamente com o horizonte — comportamento esperado. A abertura dos ICs em 24 meses é considerável mas não exagerada para uma série com essa volatilidade.</p>
+<p>Sim, achei que ficou bem. O modelo continua reproduzindo o ciclo sazonal anual na previsão e fica ancorado no nível recente da série. Os intervalos de confiança abrem com o tempo (o de 95% fica bem largo em 24 meses), mas é esperado — quanto mais longe, mais incerteza.</p>
 <p><strong>5. Que outras UFs dariam um SARIMA bem diferente?</strong></p>
-<p>Amazonas ou Pará provavelmente teriam sazonalidade com formato diferente, dado que o calendário econômico local (safras, período de chuvas que afeta logística, ciclo do agronegócio) diverge do ciclo de varejo urbano de SP. Além disso, estados menores com varejo menos diversificado tendem a ter séries mais voláteis e resíduos menos bem comportados — o que pode levar o AutoARIMA a escolher ordens mais altas ou ter diagnóstico de resíduos mais difícil de aprovar.</p>
+<p>Acho que Amazonas ou Pará seriam bem diferentes. O ciclo econômico lá é outro — tem influência de safra, período de chuvas que afeta logística, dependência maior de poucos setores. Isso provavelmente mudaria tanto a sazonalidade quanto a volatilidade da série, e o AutoARIMA escolheria ordens diferentes (e talvez os resíduos fossem mais difíceis de limpar).</p>
 </section>
 
 </main>
