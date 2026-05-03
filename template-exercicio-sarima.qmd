@@ -32,7 +32,7 @@ import matplotlib.dates as mdates
 
 from statsmodels.tsa.stattools import adfuller, kpss
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
-from pmdarima.arima.utils import ndiffs, nsdiffs
+from statsmodels.tsa.stattools import ndiffs, nsdiffs
 
 from statsforecast import StatsForecast
 from statsforecast.models import AutoARIMA
@@ -208,7 +208,7 @@ print(f"Diferenças sazonais sugeridas   (D) : {D}")
 ```{python}
 # StatsForecast espera coluna ds como string no formato YYYY-MM-DD
 df_model = df_sf.copy()
-df_model["ds"] = pd.to_datetime(df_model["ds"])
+df_model["ds"] = df_model["ds"].dt.strftime("%Y-%m-%d")
 
 sf = StatsForecast(
     models=[AutoARIMA(season_length=12)],
@@ -219,10 +219,9 @@ sf = StatsForecast(
 sf.fit(df_model)
 
 # Extraindo o modelo ajustado
-# Extraindo o modelo ajustado
 fitted_model = sf.fitted_[0, 0].model_
 print("\n=== Modelo selecionado pelo AutoARIMA ===")
-print(fitted_model)
+print(fitted_model.summary())
 ```
 
 ---
@@ -230,7 +229,7 @@ print(fitted_model)
 ## Diagnóstico dos resíduos
 
 ```{python}
-residuals = np.array(fitted_model["residuals"])
+residuals = fitted_model.resid
 
 fig, axes = plt.subplots(2, 2, figsize=(13, 8))
 
@@ -330,37 +329,20 @@ print(forecast[["ds", "AutoARIMA", "AutoARIMA-lo-80", "AutoARIMA-hi-80",
 
 **1. ACF/PACF da série original sugeriu sazonalidade? E tendência?**
 
-Sim para os dois. O ACF decai lentamente sem corte claro, o que é sinal clássico de
-não-estacionaridade (tendência). Além disso, picos pronunciados nos lags 12, 24 e 36
-evidenciam sazonalidade anual forte — o que bate perfeitamente com o gráfico de linha,
-que mostra picos recorrentes no último trimestre de cada ano (Black Friday, Natal) e
-vales em fevereiro/março.
+Sim pros dois. O ACF decai bem devagar, sem cortar em nenhum ponto claro — isso indica tendência, a série não é estacionária. E dá pra ver picos nos lags 12, 24 e 36, que são exatamente os múltiplos de um ano, então a sazonalidade anual tá bem marcada. Faz sentido com o gráfico de linha também: toda virada de ano tem um pico visível (Black Friday, Natal) e o começo do ano cai bastante.
 
 **2. Quantas diferenças o AutoARIMA aplicou? E os componentes AR/MA?**
 
-O AutoARIMA aplicou d = 1 (diferença regular) e D = 1 (diferença sazonal), o que era
-esperado dado o ACF e os testes ADF/KPSS. Os componentes AR e MA selecionados ficaram
-visíveis no ACF/PACF após a dupla diferenciação: o corte no lag 1 do PACF orienta o
-componente AR e o decaimento do ACF orienta o MA.
+Aplicou d = 1 (diferença regular) e D = 1 (diferença sazonal). Depois das duas diferenciações o ACF e PACF ficam bem mais comportados — dá pra ver onde os componentes AR e MA entram, mas confesso que a leitura exata das ordens não é trivial (o AutoARIMA faz isso automaticamente e eu confiei nele aqui).
 
 **3. Os resíduos parecem white noise?**
 
-Em geral sim. O ACF e PACF dos resíduos ficam dentro das bandas de confiança sem padrão
-sistemático, e o Ljung-Box não rejeita H0 nos lags testados. Não há padrão sazonal
-remanescente, o que indica que o modelo absorveu bem a estrutura da série.
+Parecem sim. O ACF e PACF dos resíduos ficam dentro das bandas na maior parte dos lags, sem nenhum padrão sazonal remanescente. O Ljung-Box também não rejeita H0, o que é um bom sinal — o modelo capturou bem o que tinha pra capturar.
 
 **4. A previsão pareceu razoável visualmente?**
 
-Sim. A previsão captura a sazonalidade anual (ciclo de alta no fim do ano se repete), fica
-ancorada no nível recente do histórico e os intervalos se abrem progressivamente com o
-horizonte — comportamento esperado. A abertura dos ICs em 24 meses é considerável mas não
-exagerada para uma série com essa volatilidade.
+Sim, achei que ficou bem. O modelo continua reproduzindo o ciclo sazonal anual na previsão e fica ancorado no nível recente da série. Os intervalos de confiança abrem com o tempo (o de 95% fica bem largo em 24 meses), mas é esperado — quanto mais longe, mais incerteza.
 
 **5. Que outras UFs dariam um SARIMA bem diferente?**
 
-Amazonas ou Pará provavelmente teriam sazonalidade com formato diferente, dado que o
-calendário econômico local (safras, período de chuvas que afeta logística, ciclo do
-agronegócio) diverge do ciclo de varejo urbano de SP. Além disso, estados menores com
-varejo menos diversificado tendem a ter séries mais voláteis e resíduos menos bem
-comportados — o que pode levar o AutoARIMA a escolher ordens mais altas ou ter
-diagnóstico de resíduos mais difícil de aprovar.
+Acho que Amazonas ou Pará seriam bem diferentes. O ciclo econômico lá é outro — tem influência de safra, período de chuvas que afeta logística, dependência maior de poucos setores. Isso provavelmente mudaria tanto a sazonalidade quanto a volatilidade da série, e o AutoARIMA escolheria ordens diferentes (e talvez os resíduos fossem mais difíceis de limpar).
